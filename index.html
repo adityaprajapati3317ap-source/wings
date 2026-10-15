@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pandora Member Reward Portal</title>
-  <meta name="description" content="Complete the steps below to claim your $500 Pandora Gift Card" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wingstop $500 Gift Card</title>
   <style>
     * {
       margin: 0;
@@ -14,449 +13,218 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #f0f0f0;
+      background: #ffffff;
       color: #1a1a1a;
-      line-height: 1.45;
       min-height: 100vh;
-      padding: 20px 16px 40px;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .container {
-      max-width: 420px;
-      margin: 0 auto;
-    }
-
-    /* Online badge */
-    .online-badge {
       display: flex;
       justify-content: center;
-      margin-bottom: 16px;
+      align-items: flex-start;
+      padding: 40px 16px;
     }
 
-    .online-badge span {
-      background: #fff;
-      border-radius: 50px;
-      padding: 8px 16px;
-      font-size: 13px;
-      font-weight: 500;
-      color: #333;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .online-dot {
-      width: 8px;
-      height: 8px;
-      background: #22c55e;
-      border-radius: 50%;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-
-    /* Main card */
-    .main-card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 32px 24px 28px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    .card {
+      width: 100%;
+      max-width: 420px;
       text-align: center;
-      margin-bottom: 16px;
     }
 
+    /* Wingstop logo – white fill + green outline */
     .logo {
-      margin-bottom: 20px;
-    }
-
-    .logo img {
-      height: 36px;
-      width: auto;
-    }
-
-    .logo-text {
-      font-size: 32px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      color: #1a1a1a;
-      font-family: Georgia, "Times New Roman", serif;
-    }
-
-    .headline {
-      font-size: 16px;
-      color: #444;
+      font-size: 28px;
+      font-weight: 800;
+      color: #ffffff;
+      -webkit-text-stroke: 1.8px #00843D;
+      letter-spacing: 1px;
       margin-bottom: 4px;
     }
 
-    .headline strong {
-      display: block;
-      font-size: 20px;
-      font-weight: 700;
-      color: #1a1a1a;
-      margin-top: 4px;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid #eee;
-      margin: 22px 0;
-    }
-
-    /* Steps box */
-    .steps-box {
-      border: 1.5px solid #e5e5e5;
-      border-radius: 14px;
-      overflow: hidden;
-      text-align: left;
-      margin-bottom: 24px;
-    }
-
-    .steps-header {
-      background: #f7f7f7;
-      padding: 12px 16px;
-      font-size: 14px;
-      font-weight: 600;
+    .subtitle {
+      font-size: 16px;
       color: #333;
-      border-bottom: 1px solid #e5e5e5;
+      margin-bottom: 20px;
+    }
+
+    .amount {
+      font-size: 72px;
+      font-weight: 800;
+      color: #111;
+      line-height: 1;
+      margin-bottom: 8px;
+      letter-spacing: -2px;
+    }
+
+    .credit-text {
+      font-size: 15px;
+      color: #6b7280;
+      margin-bottom: 28px;
+    }
+
+    .badges {
+      display: flex;
+      background: #f5f5f0;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 36px;
+    }
+
+    .badge {
+      flex: 1;
+      padding: 14px 8px;
+      text-align: center;
+      border-right: 1px solid #e5e5e0;
+    }
+
+    .badge:last-child {
+      border-right: none;
+    }
+
+    .badge-value {
+      font-size: 15px;
+      font-weight: 700;
+      color: #111;
+      display: block;
+    }
+
+    .badge-label {
+      font-size: 11px;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    .steps {
+      text-align: left;
+      margin-bottom: 32px;
     }
 
     .step {
       display: flex;
-      gap: 12px;
-      padding: 14px 16px;
-      border-bottom: 1px solid #f0f0f0;
-      font-size: 14.5px;
-      color: #222;
-    }
-
-    .step:last-child {
-      border-bottom: none;
+      gap: 14px;
+      margin-bottom: 22px;
+      align-items: flex-start;
     }
 
     .step-num {
-      color: #e6007e;
-      font-weight: 700;
-      min-width: 18px;
-    }
-
-    /* CTA */
-    .cta {
-      display: block;
-      width: 100%;
-      background: #e6007e;
-      color: #fff;
-      text-align: center;
-      padding: 16px;
-      border-radius: 50px;
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 0 0 0 rgba(230, 0, 126, 0.5);
-      animation: glow 2s infinite;
-      transition: background 0.2s, transform 0.15s;
-    }
-
-    .cta:hover {
-      background: #c4006a;
-      transform: translateY(-1px);
-    }
-
-    @keyframes glow {
-      0% { box-shadow: 0 0 0 0 rgba(230, 0, 126, 0.45); }
-      70% { box-shadow: 0 0 0 12px rgba(230, 0, 126, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(230, 0, 126, 0); }
-    }
-
-    /* Rating card */
-    .rating-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 22px 20px;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      margin-bottom: 16px;
-    }
-
-    .stars {
-      display: flex;
-      justify-content: center;
-      gap: 4px;
-      margin-bottom: 10px;
-    }
-
-    .star {
-      width: 28px;
-      height: 28px;
-      background: #22c55e;
-      border-radius: 6px;
+      width: 32px;
+      height: 32px;
+      background: #00843D;
+      color: white;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      font-size: 14px;
-    }
-
-    .star.half {
-      background: linear-gradient(90deg, #22c55e 60%, #e5e5e5 60%);
-    }
-
-    .rating-score {
-      font-size: 22px;
+      font-size: 15px;
       font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-content h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #111;
       margin-bottom: 2px;
     }
 
-    .rating-sub {
-      font-size: 13px;
-      color: #777;
-      margin-bottom: 10px;
-    }
-
-    .trustpilot {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+    .step-content p {
       font-size: 14px;
-      font-weight: 600;
-      color: #1a1a1a;
+      color: #6b7280;
+      line-height: 1.4;
     }
 
-    .trustpilot-icon {
-      width: 18px;
-      height: 18px;
-      background: #00b67a;
-      border-radius: 3px;
+    .step-content h3.underline {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .claim-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      font-size: 11px;
-    }
-
-    /* FAQ */
-    .faq-card {
-      background: #fff;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      margin-bottom: 24px;
-    }
-
-    .faq-title {
-      padding: 14px 18px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.8px;
-      color: #888;
-      text-transform: uppercase;
-      border-bottom: 1px solid #f0f0f0;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid #f0f0f0;
-    }
-
-    .faq-item:last-child {
-      border-bottom: none;
-    }
-
-    .faq-question {
       width: 100%;
-      background: none;
-      border: none;
-      padding: 16px 18px;
-      text-align: left;
-      font-size: 15px;
-      font-weight: 500;
-      color: #1a1a1a;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      height: 56px;
+      background: #00843D;
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 999px;
+      transition: background 0.2s, transform 0.15s;
+      margin-bottom: 18px;
+      gap: 6px;
     }
 
-    .faq-question span {
-      font-size: 20px;
-      color: #999;
-      font-weight: 300;
-      transition: transform 0.2s;
+    .claim-btn:hover {
+      background: #006b32;
+      transform: translateY(-1px);
     }
 
-    .faq-item.open .faq-question span {
-      transform: rotate(45deg);
+    .disclaimer {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.4;
     }
 
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-      padding: 0 18px;
-      font-size: 14px;
-      color: #555;
-      line-height: 1.5;
-    }
-
-    .faq-item.open .faq-answer {
-      max-height: 180px;
-      padding: 0 18px 16px;
-    }
-
-    .footer {
-      text-align: center;
-      font-size: 12px;
-      color: #999;
-      margin-top: 8px;
+    @media (max-width: 400px) {
+      .amount {
+        font-size: 60px;
+      }
+      .logo {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="card">
+    <div class="logo">WINGSTOP</div>
+    <div class="subtitle">Gift Card</div>
 
-    <!-- Online badge -->
-    <div class="online-badge">
-      <span>
-        <div class="online-dot"></div>
-        <span id="onlineCount">827</span> online now
-      </span>
-    </div>
+    <div class="amount">$500</div>
+    <div class="credit-text">Credit to spend at Wingstop</div>
 
-    <!-- Main card -->
-    <div class="main-card">
-      <div class="logo">
-        <img 
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Pandora_Logo_2019.svg/320px-Pandora_Logo_2019.svg.png" 
-          alt="Pandora"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-        />
-        <div class="logo-text" style="display:none;">PANDORA</div>
+    <div class="badges">
+      <div class="badge">
+        <span class="badge-value">3–5</span>
+        <span class="badge-label">Deals</span>
       </div>
-
-      <p class="headline">
-        Complete the steps below to claim your
-        <strong>$500 Pandora Gift Card</strong>
-      </p>
-
-      <hr />
-
-      <div class="steps-box">
-        <div class="steps-header">Steps to Qualify</div>
-        <div class="step">
-          <span class="step-num">1.</span>
-          <span>Click on “Start Now”</span>
-        </div>
-        <div class="step">
-          <span class="step-num">2.</span>
-          <span>Enter your email and basic information</span>
-        </div>
-        <div class="step">
-          <span class="step-num">3.</span>
-          <span>Complete 3–5 recommended deals (required)</span>
-        </div>
-        <div class="step">
-          <span class="step-num">4.</span>
-          <span>Claim your $500 Pandora Gift Card</span>
-        </div>
+      <div class="badge">
+        <span class="badge-value">Free</span>
+        <span class="badge-label">To Sign Up</span>
       </div>
-
-      <!-- Button with your affiliate link -->
-      <a href="https://linkthem.net/aff_c?offer_id=174&aff_id=145283" class="cta" id="startBtn">START NOW</a>
-    </div>
-
-    <!-- Rating card -->
-    <div class="rating-card">
-      <div class="stars">
-        <div class="star">★</div>
-        <div class="star">★</div>
-        <div class="star">★</div>
-        <div class="star">★</div>
-        <div class="star half">★</div>
-      </div>
-      <div class="rating-score">9.8 out of 10</div>
-      <div class="rating-sub">Based on 9,233 reviews</div>
-      <div class="trustpilot">
-        <div class="trustpilot-icon">★</div>
-        Trustpilot
+      <div class="badge">
+        <span class="badge-value">Email</span>
+        <span class="badge-label">Delivery</span>
       </div>
     </div>
 
-    <!-- FAQ -->
-    <div class="faq-card">
-      <div class="faq-title">Frequently Asked Questions</div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          What are Deals?
-          <span>+</span>
-        </button>
-        <div class="faq-answer">
-          Deals are short sponsored offers (free trials, product interest forms, or simple app installs). Most take less than 2 minutes to complete.
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Tap the button below</h3>
+          <p>Start your $500 reward offer</p>
         </div>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          How many Deals do I need to complete?
-          <span>+</span>
-        </button>
-        <div class="faq-answer">
-          You need to complete 3–5 recommended deals. The exact number is shown after you start.
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Enter your email</h3>
+          <p>Just a valid address to get started</p>
         </div>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          Is this really free?
-          <span>+</span>
-        </button>
-        <div class="faq-answer">
-          Yes. There is no cost to claim the reward. You only need to complete the required deals.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          When will I receive my reward?
-          <span>+</span>
-        </button>
-        <div class="faq-answer">
-          Once you finish the required deals, your $500 Pandora Gift Card is typically delivered by email within 24–48 hours.
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3 class="underline">Complete 3-5 recommended deals</h3>
+          <p>Trials & offers to unlock the full $500</p>
         </div>
       </div>
     </div>
 
-    <div class="footer">
-      Copyright pandorarewards.com 2026. All rights reserved.
-    </div>
+    <a href="https://linkthem.net/aff_c?offer_id=1541&aff_id=145283" class="claim-btn">Claim My $500 →</a>
+
+    <p class="disclaimer">Deal completion required. Some deals may need a purchase.</p>
   </div>
-
-  <script>
-    // Live online counter
-    const countEl = document.getElementById('onlineCount');
-    let count = 827;
-    setInterval(() => {
-      count += Math.floor(Math.random() * 5) - 2;
-      if (count < 780) count = 780;
-      if (count > 920) count = 920;
-      countEl.textContent = count;
-    }, 4000);
-
-    // FAQ accordion
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.parentElement;
-        const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
-      });
-    });
-  </script>
 </body>
 </html>
